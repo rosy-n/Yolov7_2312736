@@ -18,9 +18,9 @@ from collections import OrderedDict,namedtuple
 providers = ['CUDAExecutionProvider', 'CPUExecutionProvider'] if cuda else ['CPUExecutionProvider'] #['AzureExecutionProvider', 'CPUExecutionProvider'] if cuda else ['CPUExecutionProvider']
 session = ort.InferenceSession(w, providers=providers)
 
-tf.compat.disable_v2_behavior()
-with tf.compat.Session() as sess:
-    x = tf.compat.placeholder(tf.float32, [2])
+tf.compat.v1.disable_v2_behavior()
+with tf.compat.v1.Session() as sess:
+    x = tf.compat.v1.placeholder(tf.float32, [2])
     x2 = tf.square(x)
     print(sess.run(x2, feed_dict={x: [2, 3]}))
     # [4. 9.]
@@ -125,7 +125,7 @@ while webcam.isOpened():
         cv2.rectangle(image,box[:2],box[2:],color,2)
         cv2.putText(image,name,(box[0], box[1] - 2),cv2.FONT_HERSHEY_SIMPLEX,0.75,[225, 255, 255],thickness=2)  
 
-    print('[INFO] draw all detected boxes by Prof. Kim....!')    #<===== 여기에 여러분들의 학번이 표시되도록 합니다.
+    print('nojieun_2312736')    #<===== 여기에 여러분들의 학번이 표시되도록 합니다.
 
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) # PIL image --> opencv image Mat buffer
     
